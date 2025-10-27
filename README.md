@@ -1,0 +1,2 @@
+# DjangoProject
+# DjangoCrud
