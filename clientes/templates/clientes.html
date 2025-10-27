@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="text-center mt-5">Clientes</h1>
+
+<div class="container mt-5">
+    <a class="btn btn-primary" href="{% url 'crearCliente' %}">Agregar Cliente</a>
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Identificacion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.apellido }}</td>
+                <td>{{ cliente.identificacion }}</td>
+                <td>
+                    <a class="btn btn-info" href="{% url 'cliente_detalle' cliente.id%}">Ver detalles</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

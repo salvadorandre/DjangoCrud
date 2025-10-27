@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+{{error}}
+
+<div class="container mt-5 w-50 bg-light p-4 rounded-3">
+    <h1 class="text-center mt-8">Crear Cliente</h1>
+    <form action="/crearCliente/" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="id_nombre" name="nombre" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="id_apellido" name="apellido" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Identificacion</label>
+            <input type="text" class="form-control" id="id_identificacion" name="identificacion" required
+                maxlength="20">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Crear Cliente</button>
+    </form>
+</div>
+
+{% endblock %}

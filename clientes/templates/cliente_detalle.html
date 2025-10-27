@@ -1,0 +1,32 @@
+
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container mt-5 w-50 bg-light p-4 rounded-3">
+    <h1 class="text-center mt-8">Detalle del Cliente</h1>
+    <form  method="post" action="{% url 'cliente_detalle' cliente.id %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="id_nombre" name="nombre" required value="{{ cliente.nombre }}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="id_apellido" name="apellido" required value="{{ cliente.apellido }}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Identificacion</label>
+            <input type="text" class="form-control" id="id_identificacion" name="identificacion" required
+                maxlength="20" value="{{ cliente.identificacion }}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Actualizar Cliente</button>
+    </form>
+    <form class="mt-2" action="{% url 'cliente_eliminar' cliente.id %}" method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Eliminar Cliente</button>
+</form>
+</div>
+
+{% endblock %}
